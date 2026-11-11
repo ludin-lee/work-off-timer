@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 APP=WorkOffTimer.app
-VERSION=1.0.1
+VERSION=1.0.2
 mkdir -p $APP/Contents/MacOS $APP/Contents/Resources
 cp AppIcon.icns $APP/Contents/Resources/
 swiftc -O main.swift -o $APP/Contents/MacOS/WorkOffTimer
@@ -18,4 +18,11 @@ cat > $APP/Contents/Info.plist <<EOF
 EOF
 # ad-hoc 서명: 번들 전체가 서명돼야 다운로드 후 "손상됨"이 안 뜸
 codesign --force --deep -s - $APP
-echo "built $APP"
+# 설치용 dmg: 앱을 Applications 바로가기로 드래그
+STAGE=$(mktemp -d)
+cp -R $APP $STAGE/
+ln -s /Applications $STAGE/Applications
+rm -f WorkOffTimer-$VERSION.dmg
+hdiutil create -quiet -volname WorkOffTimer -srcfolder $STAGE -format UDZO WorkOffTimer-$VERSION.dmg
+rm -rf $STAGE
+echo "built $APP, WorkOffTimer-$VERSION.dmg"

@@ -20,8 +20,8 @@ macOS 메뉴바에 퇴근까지 남은 시간을 띄워 주는 작은 앱입니�
 
 ## 설치
 
-1. [Releases](https://github.com/ludin-lee/work-off-timer/releases/latest)에서 `WorkOffTimer-x.y.z.zip`을 받습니다.
-2. 압축을 풀고 `WorkOffTimer.app`을 `/Applications`로 옮깁니다.
+1. [Releases](https://github.com/ludin-lee/work-off-timer/releases/latest)에서 `WorkOffTimer-x.y.z.dmg`를 받습니다.
+2. dmg를 열고 `WorkOffTimer`를 `Applications` 폴더로 드래그합니다.
 3. Apple 개발자 서명이 없어서 처음 열 때 "확인할 수 없음" 경고가 뜹니다.
    **시스템 설정 → 개인정보 보호 및 보안**에서 맨 아래 **그래도 열기**를 누르세요.
    또는 아래 명령을 한 번 실행한 뒤 다시 엽니다.
@@ -39,7 +39,7 @@ xcode-select --install   # 처음 한 번만
 ./build.sh
 ```
 
-`WorkOffTimer.app`이 만들어집니다.
+`WorkOffTimer.app`과 설치용 `WorkOffTimer-x.y.z.dmg`가 만들어집니다.
 
 ## 실행
 
