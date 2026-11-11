@@ -18,7 +18,18 @@ macOS 메뉴바에 퇴근까지 남은 시간을 띄워 주는 작은 앱입니�
 - 설정한 값은 그날 하루만 쓰이고 다음 날에는 초기화됩니다.
 - Dock에는 아이콘이 뜨지 않고 메뉴바에만 나타납니다.
 
-## 빌드
+## 설치
+
+1. [Releases](https://github.com/ludin-lee/work-off-timer/releases/latest)에서 `WorkOffTimer-x.y.z.zip`을 받습니다.
+2. 압축을 풀고 `WorkOffTimer.app`을 `/Applications`로 옮깁니다.
+3. 서명하지 않은 앱이라 처음 한 번은 앱을 우클릭한 뒤 **열기**를 누릅니다.
+   그래도 열리지 않으면 아래 명령을 실행한 뒤 다시 엽니다.
+
+   ```sh
+   xattr -dr com.apple.quarantine /Applications/WorkOffTimer.app
+   ```
+
+## 직접 빌드
 
 Xcode Command Line Tools(`swiftc`)가 필요합니다.
 
