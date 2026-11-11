@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname "$0")"
 APP=WorkOffTimer.app
-VERSION=1.0.0
+VERSION=1.0.1
 mkdir -p $APP/Contents/MacOS $APP/Contents/Resources
 cp AppIcon.icns $APP/Contents/Resources/
 swiftc -O main.swift -o $APP/Contents/MacOS/WorkOffTimer
@@ -16,4 +16,6 @@ cat > $APP/Contents/Info.plist <<EOF
 <key>CFBundleIconFile</key><string>AppIcon</string>
 </dict></plist>
 EOF
+# ad-hoc 서명: 번들 전체가 서명돼야 다운로드 후 "손상됨"이 안 뜸
+codesign --force --deep -s - $APP
 echo "built $APP"
